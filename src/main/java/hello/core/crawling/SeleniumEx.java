@@ -1,7 +1,11 @@
 package hello.core.crawling;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+
 
 public class SeleniumEx {
     public static void main(String[] args) {
@@ -12,15 +16,23 @@ public class SeleniumEx {
         WebDriver driver = new ChromeDriver();
 
         try {
-            String url = "http://gs25.gsretail.com/gscvs/en/products/event-goods#";
+
+            String url = "https://quotes.toscrape.com/";
             driver.get(url);
 
-            // <title> 태그 가져오기
-            String pageTitle = driver.getTitle();
+            // 페이지의 모든 인용문 요소 가져오기
+            List<WebElement> quotes = driver.findElements(By.className("quote"));
 
-            // 페이지 제목 출력
-            System.out.println("페이지 제목: " + pageTitle);
+            for (WebElement quote : quotes) {
+                // 인용문 텍스트와 저자 가져오기
+                String quoteText = quote.findElement(By.className("text")).getText();
+                String author = quote.findElement(By.className("author")).getText();
 
+                // 출력
+                System.out.println("인용문: " + quoteText);
+                System.out.println("저자: " + author);
+                System.out.println("---------------------------");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
