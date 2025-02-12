@@ -6,62 +6,36 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-<<<<<<< HEAD
-=======
 
 import java.time.Duration;
 import java.util.List;
-
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
-
-import java.time.Duration;
-import java.util.List;
-
 
 public class GSCrawling {
-
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
-        driver.get("http://gs25.gsretail.com/gscvs/en/products/event-goods#;"); // 크롤링할 페이지 입력
+        driver.get("http://gs25.gsretail.com/gscvs/en/products/event-goods#;");
 
-<<<<<<< HEAD
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // 10초로 변경
-
-
-        if (driver.getTitle().contains("안전하지 않은 사이트")) //HTTP주소로 접근 시 크롬에서 접근을 차단할 경우에 실행되는 코드
-        {
+        if (driver.getTitle().contains("안전하지 않은 사이트")) {
             WebElement HTTPButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='proceed-button']")));
             HTTPButton.click();
         }
 
-
         // ✅ TOTAL 버튼 클릭
         WebElement totalButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='TOTAL']")));
         totalButton.click();
-        Thread.sleep(2000); // ✅ 페이지 로드 대기 (2초)
+        Thread.sleep(2000);
 
         // ✅ 상품 리스트 첫 번째 요소가 로드될 때까지 대기
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[1]/ul/li[1]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[4]/ul/li[1]")));
 
-=======
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // 10초로 변경
-
-        // ✅ TOTAL 버튼 클릭
-        WebElement totalButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='TOTAL']")));
-        totalButton.click();
-        Thread.sleep(2000); // ✅ 페이지 로드 대기 (2초)
-
-        // ✅ 상품 리스트 첫 번째 요소가 로드될 때까지 대기
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[1]/ul/li[1]")));
-
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
         while (true) {
             // 현재 페이지 번호 가져오기
             WebElement pageNumElement = driver.findElement(By.xpath("//*[@id='pageNum']"));
-            String currentPage = pageNumElement.getAttribute("value"); // 현재 페이지 번호
+            String currentPage = pageNumElement.getAttribute("value");
 
-            // 제품 목록 가져오기 (div[4]로 변경됨)
+            // 제품 목록 가져오기
             List<WebElement> productContainers = driver.findElements(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[4]/ul/li"));
 
             for (WebElement container : productContainers) {
@@ -70,10 +44,7 @@ public class GSCrawling {
 
                 // ✅ 가격
                 String price = container.findElement(By.xpath("./div/p[3]/span")).getText();
-<<<<<<< HEAD
-                int intprice = Integer.parseInt(price.replaceAll("[^0-9]", ""));
-=======
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
+                int intPrice = Integer.parseInt(price.replaceAll("[^0-9]", ""));
 
                 // ✅ 행사 여부 (없으면 기본값)
                 List<WebElement> eventElements = container.findElements(By.xpath("./div/div/p/span"));
@@ -82,36 +53,29 @@ public class GSCrawling {
                 // ✅ 이미지 URL
                 WebElement imageElement = container.findElement(By.xpath("./div/p[1]/img"));
                 String imageUrl = imageElement.getAttribute("src");
-
-<<<<<<< HEAD
-                System.out.println("제품명: " + name + " | 가격: " + intprice + "원 | 행사: " + event + " | 이미지: " + imageUrl);
-=======
-                // 이미지 URL이 상대 경로라면 절대 경로로 변환
                 if (imageUrl.startsWith("//")) {
                     imageUrl = "https:" + imageUrl;
                 }
 
-                System.out.println("제품명: " + name + " | 가격: " + price + " | 행사: " + event + " | 이미지: " + imageUrl);
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
+                String category = "";
+
+                System.out.println("편의점: GS | 분류: " + category + " | 제품명: " + name + " | 가격: " + intPrice + " | 행사: " + event + " | 이미지: " + imageUrl);
+
             }
 
             // Next 버튼 찾기
             WebElement nextButton = driver.findElement(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[4]/div/a[3]"));
 
             if (!nextButton.isDisplayed() || !nextButton.isEnabled()) {
-                break; // 다음 버튼이 비활성화되면 종료
+                break;
             }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
             // Next 버튼 클릭
             nextButton.click();
-            Thread.sleep(2000); // ✅ 페이지 로드 대기 (2초)
+            Thread.sleep(2000);
 
             // 페이지가 로드될 시간을 기다림
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[4]/ul/li[1]"))); // ✅ 첫 번째 제품이 나타날 때까지 대기
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='wrap']/div[4]/div[2]/div[3]/div/div/div[4]/ul/li[1]")));
 
             // 새로운 페이지 번호 가져오기
             String newPage = driver.findElement(By.xpath("//*[@id='pageNum']")).getAttribute("value");
@@ -124,8 +88,4 @@ public class GSCrawling {
 
         driver.quit();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 984c6ed3d753f509faacaaf480374bae60f8b47f
