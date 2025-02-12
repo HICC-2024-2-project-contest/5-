@@ -19,6 +19,9 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
+    @GetMapping("/mainpage")
+    public String mainpage() {return "mainpage";}
+
     @GetMapping("/member/save")
     public String saveForm() { return "save"; }
 

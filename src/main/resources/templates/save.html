@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>save</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="../css/save.css">
 </head>
 <body>
-<form action="/member/save" method="post">
-    이름:<input type="text" name="memberName"> <br>
-    비밀번호: <input type="text" name="memberPassword"> <br>
-    E-Mail: <input type="text" name="memberEmail"> <br>
-    <input type="submit" value="회원가입">
-</form>
+<div class="container">
+  <h2>회원가입</h2>
+  <form action="/member/save" method="POST">
+    <div class="form-group">
+      <label for="username">사용자 이름</label>
+      <input type="text" id="username" name="memberName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">이메일</label>
+      <input type="email" id="email" name="memberEmail" required>
+    </div>
+    <div class="form-group">
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" name="memberPassword" required>
+    </div>
+    <button class="submit" onclick="location.href='/member/login'">로그인</button>
+  </form>
+</div>
 </body>
 </html>
