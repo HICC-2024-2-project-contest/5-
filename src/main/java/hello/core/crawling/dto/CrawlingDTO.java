@@ -21,9 +21,6 @@ public class CrawlingDTO {
     // Entity → DTO 변환 메서드
     public static CrawlingDTO toCrawlingDTO(CrawlingEntity crawlingEntity) {
         CrawlingDTO crawlingDTO = new CrawlingDTO();
-        crawlingDTO.setId(crawlingEntity.getId());
-
-
         crawlingDTO.setProductNames(crawlingEntity.getProductNames());
         crawlingDTO.setProductPrices(crawlingEntity.getProductPrices());
         crawlingDTO.setProductImages(crawlingEntity.getProductImages());
@@ -36,9 +33,8 @@ public class CrawlingDTO {
     }
 
     // DTO → Entity 변환 메서드
-    public CrawlingEntity toEntity() {
+    public CrawlingEntity toCrawlingEntity() {
         CrawlingEntity entity = new CrawlingEntity();
-        entity.setId(this.id);
         entity.setCompanyName(this.companyName);
         entity.setProductNames(this.productNames);
         entity.setProductPrices(this.productPrices);
