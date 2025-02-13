@@ -1,0 +1,126 @@
+<div class="event-table">
+    <p id="event"><strong>1+1활인행사</strong><span id="right-side">+전체보기</span></p>
+    <table id="evnet-img">
+        <tr>
+            <td>
+                <ul>
+                    <li>
+                        <img src="../img/원플원 상품이미지.png">
+                    </li>
+                    <li>
+                        <p class="names">3사 이름</p>
+                    </li>
+                    <li><p>제품명</p></li>
+                    <li><p><span id="_1">가격</span>원<small id="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                </ul>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr></tr>
+</div>
+
+
+
+/* 위에 전반 */
+#top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  /* 요소들이 한 줄에 위치 */
+}
+
+
+/* 3사 로고 */
+#logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4%; /* 이미지 간격 */
+}
+
+#logo img {
+    max-width: 80px;
+    height: 10%;
+}
+
+/* 웹 로고*/
+#firsth {
+    color: rgb(212, 108, 28);
+    margin-right:5%;
+    margin-left:10%;
+}
+
+/*검색창 */
+#main-search {
+    border: none;  /* 주황색 테두리 */
+    border-radius: 50px;;  /* 네 모서리 모두 둥글게 */
+    padding: 8px 15px;  /* 내부 여백 */
+     width: 15%; 
+    outline: none;  /* 클릭 시 파란 테두리 제거 */
+    background-color: rgb(236, 236, 236);
+    margin-left: 34%;
+    margin-right: 1%;
+}
+
+/* 로그인 */
+#login-button{
+    margin-right:10%
+}
+
+
+/* top아래 main 배너*/
+#banner {
+    margin-left:10%;
+    margin-right:10%;
+}
+
+
+/* 어쩌구저쩌구 아이콘, 아래에 상품명 */
+#icon-lines li {
+    display: flex;
+    gap: 0px;  /* 요소들 사이 간격을 1px로 */
+    flex-wrap: wrap; /* 요소가 넘칠 경우 줄바꿈 */
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 이미지와 텍스트를 중앙 정렬 */
+    margin-left: -1.5%;
+}
+
+.icons {
+    margin-left: 7%; /* 전체를 왼쪽에서 8% 떨어뜨림 */
+}
+.block>li{
+    text-decoration: none;
+}
+
+
+
+/* 이벤트 알리기기 */
+#event {
+    margin-left: 10%;
+}
+
+/* +전체보기 */
+#right-side {
+    margin-left:50%;
+    font-size: small;
+    color: gray;
+}
+
+#event-img li{
+    list-style:none;
+}
+#event-img {
+    max-width: 70%;
+    margin-left: 10%;
+}
+
+
+
+
+
+
