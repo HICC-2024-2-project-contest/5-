@@ -43,7 +43,7 @@ public class MemberController {
         MemberDTO loginResult = memberService.login(memberDTO);
         if (loginResult != null) {
             session.setAttribute("loginEmail", loginResult.getMemberEmail());
-            return "main";
+            return "redirect:/mainpage";
         }
         else return "login";
     }
