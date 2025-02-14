@@ -1,7 +1,6 @@
 package hello.core.crawling;
 
 import hello.core.crawling.dto.CrawlingDTO;
-import hello.core.crawling.entity.CrawlingEntity;
 import hello.core.crawling.service.CrawlingService;
 import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;

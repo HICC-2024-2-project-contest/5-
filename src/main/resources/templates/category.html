@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[${productCategory}]] - 편의점 비교왕</title>
+    <link rel="stylesheet" th:href="@{/css/category.css}">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            <h1 class="title">편의점 비교왕</h1>
+            <div class="logo-container">
+                <img src="cu-logo.png" alt="CU 로고" class="logo">
+                <span class="separator"></span>
+                <img src="gs25-logo.png" alt="GS25 로고" class="logo">
+                <span class="separator"></span>
+                <img src="7eleven-logo.png" alt="7-Eleven 로고" class="logo">
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-auth-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="검색어를 입력하세요." class="search-input">
+                </div>
+                <div class="auth-buttons">
+                    <button class="auth-btn">로그인</button>
+                    <span>|</span>
+                    <button class="auth-btn">회원가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav>
+    <ul class="category-menu">
+        <li><a href="/category/lunch" class="category-item" th:classappend="${productCategory == 'lunch' ? 'active' : ''}">도시락</a></li>
+        <li><a href="/category/sandwich_hamburger" class="category-item" th:classappend="${productCategory == 'sandwich_hamburger' ? 'active' : ''}">샌드위치·햄버거</a></li>
+        <li><a href="/category/rice_ball" class="category-item" th:classappend="${productCategory == 'rice_ball' ? 'active' : ''}">주먹밥·김밥</a></li>
+        <li><a href="/category/fried" class="category-item" th:classappend="${productCategory == 'fried' ? 'active' : ''}">튀김류</a></li>
+        <li><a href="/category/bakery" class="category-item" th:classappend="${productCategory == 'bakery' ? 'active' : ''}">베이커리</a></li>
+        <li><a href="/category/instant_coffee" class="category-item" th:classappend="${productCategory == 'instant_coffee' ? 'active' : ''}">즉석커피</a></li>
+        <li><a href="/category/snack" class="category-item" th:classappend="${productCategory == 'snack' ? 'active' : ''}">스낵·비스켓</a></li>
+        <li><a href="/category/bread_dessert" class="category-item" th:classappend="${productCategory == 'bread_dessert' ? 'active' : ''}">빵·디저트</a></li>
+        <li><a href="/category/candy_choco" class="category-item" th:classappend="${productCategory == 'candy_choco' ? 'active' : ''}">껌·초콜릿·캔디</a></li>
+        <li><a href="/category/ice_cream" class="category-item" th:classappend="${productCategory == 'ice_cream' ? 'active' : ''}">아이스크림</a></li>
+        <li><a href="/category/processed_food" class="category-item" th:classappend="${productCategory == 'processed_food' ? 'active' : ''}">가공식사</a></li>
+        <li><a href="/category/alcohol_snack" class="category-item" th:classappend="${productCategory == 'alcohol_snack' ? 'active' : ''}">안주류</a></li>
+        <li><a href="/category/ingredients" class="category-item" th:classappend="${productCategory == 'ingredients' ? 'active' : ''}">식재료</a></li>
+        <li><a href="/category/drink" class="category-item" th:classappend="${productCategory == 'drink' ? 'active' : ''}">음료</a></li>
+        <li><a href="/category/ice_drink" class="category-item" th:classappend="${productCategory == 'ice_drink' ? 'active' : ''}">아이스드링크</a></li>
+        <li><a href="/category/dairy" class="category-item" th:classappend="${productCategory == 'dairy' ? 'active' : ''}">유제품</a></li>
+        <li><a href="/category/hobby" class="category-item" th:classappend="${productCategory == 'hobby' ? 'active' : ''}">취미·레저</a></li>
+        <li><a href="/category/medicine" class="category-item" th:classappend="${productCategory == 'medicine' ? 'active' : ''}">의약외품</a></li>
+        <li><a href="/category/personal" class="category-item" th:classappend="${productCategory == 'personal' ? 'active' : ''}">신변잡화</a></li>
+        <li><a href="/category/household" class="category-item" th:classappend="${productCategory == 'household' ? 'active' : ''}">생활잡화</a></li>
+    </ul>
+</nav>
+
+
+<main>
+    <section class="product-section">
+        <div class="product-grid">
+            <div th:each="product : ${products}" class="product-card">
+                <!-- ✅ 절대 URL(https://)이면 그대로 사용, 로컬 이미지면 /img/ 추가 -->
+                <img th:src="${#strings.contains(product.productImages, 'http')
+                              ? product.productImages
+                              : '/img/' + product.productImages}"
+                     th:alt="${product.productNames}" class="product-img">
+
+                <p class="product-name">[[${product.productNames}]]</p>
+                <p class="product-price">[[${product.productPrices}]] 원</p>
+                <p class="product-discount">할인 정보: [[${product.discountInfo}]]</p>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const productGrid = document.querySelector('.product-grid');
+
+        // ✅ 상품 정보가 있을 경우 렌더링
+        function renderProducts(products) {
+            productGrid.innerHTML = ''; // 기존 데이터 삭제
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                // ✅ 이미지 경로 처리 (절대 URL과 로컬 이미지 구분)
+                const imageUrl = product.productImages.startsWith('http') ? product.productImages : `/img/${product.productImages}`;
+
+                // ✅ 할인 정보 확인
+                const discountInfo = product.discountInfo && product.discountInfo.trim() !== '' ? product.discountInfo : '할인 없음';
+
+                productCard.innerHTML = `
+                <img src="${imageUrl}" alt="${product.productNames}" class="product-img">
+                <p class="product-name">${product.productNames}</p>
+                <p class="product-price">${product.productPrices} 원</p>
+                <p class="product-discount">할인 정보: ${discountInfo}</p>
+            `;
+
+                // ✅ 상품 클릭 시 상세 페이지 이동
+                productCard.addEventListener('click', () => {
+                    window.location.href = `/product/${product.barcode}`;
+                });
+
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // ✅ 서버에서 데이터 가져와서 렌더링 (AJAX 사용 가능)
+        function loadProducts() {
+            fetch(window.location.pathname) // 현재 URL에서 데이터 가져옴
+                .then(response => response.json()) // JSON 변환
+                .then(data => {
+                    renderProducts(data);
+                })
+                .catch(error => console.error("상품 데이터를 불러오는 중 오류 발생:", error));
+        }
+
+        // ✅ 초기 상품 로드
+        loadProducts();
+    });
+
+</script>
+
+</body>
+</html>

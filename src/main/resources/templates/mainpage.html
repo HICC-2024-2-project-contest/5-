@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"></html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mainpage</title>
-    <link rel="stylesheet" href="../css/mainpage.css">
+    <link rel="stylesheet" href="/css/mainpage.css">
+
 
 </head>
 <body>
@@ -12,11 +14,11 @@
     <div class="logo-and-menu">
         <span class="title">편의점 비교왕</span>
         <nav class="menu">
-            <a href="#"><img src="/img/CU(씨유)로고1 1.svg" alt="CU 로고" class="logo-img"></a>
+            <a href="#"><img src="../img/CULOGO.svg" alt="CU 로고" class="logo-img"></a>
             <span>|</span>
-            <a href="#"><img src="/img/gs25_logo 1.svg" alt="GS25 로고" class="logo-img"></a>
+            <a href="#"><img src="../img/gs25_logo 1.svg" alt="GS25 로고" class="logo-img"></a>
             <span>|</span>
-            <a href="#"><img src="/img/1008_bg_af_웰텍스 1.svg" alt="7-ELEVEN 로고" class="logo-img seven-eleven"></a>
+            <a href="#"><img src="../img/7ELEVEN.svg" alt="7-ELEVEN 로고" class="logo-img seven-eleven"></a>
         </nav>
     </div>
     <div class="search-and-login">
@@ -26,17 +28,17 @@
         </div>
         <button class="login-btn" onclick="location.href='/member/save'">회원가입</button>
         <button class="login-btn" onclick="location.href='/member/login'">로그인</button>
-
     </div>
 </header>
 
 
 
 
-<div class="main-img">           <!-- 배너   -->
-    <img src="/img/banner.svg" id="banner">
+<div class="main-img"> <!-- 배너 -->
+    <a href="/mainpage">
+        <img src="../img/banner.svg" id="banner">
+    </a>
 </div>
-
 
 
 
@@ -45,212 +47,173 @@
     <ul id="icon-lines">
         <li>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/lunch">
+                    <figure>
+                        <img src="../img/Rectangle 49 (2).svg">
+                        <figcaption>도시락</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/sandwich_hamburger">
+                    <figure>
+                        <img src="../img/Rectangle 49 (3).svg">
+                        <figcaption>샌드위치. 햄버거</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/rice_ball">
+                    <figure>
+                        <img src="../img/Rectangle 49 (4).svg">
+                        <figcaption>주먹밥.김밥</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+            <a href="/category/fried">
+                    <figure>
+                        <img src="../img/Rectangle 49 (5).svg">
+                        <figcaption>튀김류</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/bakery">
+                    <figure>
+                        <img src="../img/Rectangle 49 (6).svg">
+                        <figcaption>베이커리</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/instant_coffee">
+                    <figure>
+                        <img src="../img/Rectangle 49 (7).svg">
+                        <figcaption>즉석커피</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/snack">
+                    <figure>
+                        <img src="../img/Rectangle 49 (8).svg">
+                        <figcaption>스낵.비스캣</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li>                 <!-- 둘째줄---------------------------------------- -->
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/bread_dessert">
+                    <figure>
+                        <img src="../img/Rectangle 49 (9).svg">
+                        <figcaption>빵.디저트</figcaption>
+                    </figure>
+                </a>
             </div>
         </li>
         <li>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/candy_choco">
+                    <figure>
+                        <img src="../img/Rectangle 49 (10).svg">
+                        <figcaption>껌.초콜릿.캔디</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/ice_cream">
+                    <figure>
+                        <img src="../img/Rectangle 49 (11).svg">
+                        <figcaption>아이스크림</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/processed_food">
+                    <figure>
+                        <img src="../img/Rectangle 49 (12).svg">
+                        <figcaption>가공식사</figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="block">
-                <ul>
-                    <li>
-                        <img src="/img/Rectangle 49.svg">
-                    </li>
-                    <li>
-                        <p>상품명</p>
-                    </li>
-                </ul>
+                <a href="/category/alcohol_snack">
+                    <figure>
+                        <img src="../img/Rectangle 49 (13).svg">
+                        <figcaption>안주류</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/ingredients">
+                    <figure>
+                        <img src="../img/Rectangle 49 (14).svg">
+                        <figcaption>식재료</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/drink">
+                    <figure>
+                        <img src="../img/Rectangle 49 (15).svg">
+                        <figcaption>음료</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/ice_drink">
+                    <figure>
+                        <img src="../img/Rectangle 49 (16).svg">
+                        <figcaption>아이스드링크</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/dairy">
+                    <figure>
+                        <img src="../img/Rectangle 49 (17).svg">
+                        <figcaption>유제품</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <a href="/category/hobby">
+                    <figure>
+                        <img src="../img/Rectangle 49 (18).svg">
+                        <figcaption>취미.레저</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/medicine">
+                    <figure>
+                        <img src="../img/Rectangle 49 (19).svg">
+                        <figcaption>의약외품</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/personal">
+                    <figure>
+                        <img src="../img/Rectangle 49 (20).svg">
+                        <figcaption>신변잡화</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="block">
+                <a href="/category/household">
+                    <figure>
+                        <img src="../img/Rectangle 49 (21).svg">
+                        <figcaption>생활잡화</figcaption>
+                    </figure>
+                </a>
             </div>
         </li>
     </ul>
-</div><!---------------------------------------------------------------------------------------------------------------------- -->
+</div>
+<!---------------------------------------------------------------------------------------------------------------------- -->
 <br>
 
 
@@ -260,56 +223,75 @@
 
 <!-- 1+1이벤트 페이지 표를 통해 구현하기 시작점점----------------------------------------------------------- -->
 <div class="event-div">
-    <p id="event"><strong>1+1할인행사</strong><span id="right-side">전체보기+</span></p>
+    <p id="event">
+        <a href=""><strong>1+1활인행사</strong></a>
+        <a href="" id="right-side">전체보기+</a>
+    </p>
     <div class="event-table">
         <table id="event-img">
             <tr>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
             </tr>
@@ -317,225 +299,213 @@
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>
-                            <img src="/img/원플원 상품이미지.png">
+                            <a href="">
+                                <img src="../img/원플원 상품이미지.png">
+                            </a>
                         </li>
                         <li>
-                            <p class="names">3사 이름</p>
+                            <a href="">
+                                <p class="names">3사 이름</p>
+                            </a>
                         </li>
-                        <li><p>제품명</p></li>
-                        <li><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></li>  <!--innerhtml이용해서 js로 넣기-->
+                        <li><a href=""><p>제품명</p></a></li>
+                        <li><a href=""><p><span class="_1">가격</span>원<small class="small-1">1개당 n원</small></p></a></li>
                     </ul>
                 </td>
             </tr>
         </table>
-
-    </div><!--event-table >>이벤트 표 div-->
-</div> <!--event-div 이벤트를 다루는 가장 큰 div-->
-<!-- 1+1이벤트 페이지 표를 통해 구현하기 시작점점 ------------------------------------------------->
-
-
+    </div>
+</div>
 
 <!-- 사이드바-->
 <div id="sidebar">
     <aside>
-        <p>인기 상품순위</p>
-        <p id="small-font-date"><span id="date"></span>기준</p> <!--폰트 조절 필요. js로 innerhtml-->
+        <p><a href="">인기 상품순위</a></p>
+        <p id="small-font-date"><span id="date"></span>기준</p>
         <hr id="orange-hr" color="orange">
 
         <!-- 사이드바 내부 내용 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 2 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 3 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 4 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 5 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 6 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 7 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 8 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
+
+        <!-- 사이드바 콘텐츠 9 -->
         <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
             <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
+                <a href=""><img src="../img/원플원 상품이미지.png" alt="이미지" /></a>
             </div>
-
-            <!-- 오른쪽: 텍스트 5줄 -->
             <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
+                <a href=""><p>1상품명명</p></a>
+                <a href=""><p>텍스트 2</p></a>
+                <a href=""><p>텍스트 3</p></a>
+                <a href=""><p>텍스트 4</p></a>
+                <a href=""><p>텍스트 5</p></a>
             </div>
         </div>
-        <div class="sidebar-content">
-            <!-- 왼쪽: 이미지 영역 -->
-            <div class="left-image">
-                <img src="/img/원플원 상품이미지.png" alt="이미지" />
-            </div>
 
-            <!-- 오른쪽: 텍스트 5줄 -->
-            <div class="right-text">
-                <p> 1상품명명</p>
-                <p>텍스트 2</p>
-                <p>텍스트 3</p>
-                <p>텍스트 4</p>
-                <p>텍스트 5</p>
-            </div>
-        </div>
         <br>
         <div class="view-all">
-            <img src="/img/전체보기.svg" id="view-all">
+            <a href=""><img src="../img/전체보기.svg" id="view-all"></a>
         </div>
-        <!--그림자 넣기-->
     </aside>
 </div>
+
 <script src="../js/mainpage-date.js"></script>
 </body>
+
 </html>

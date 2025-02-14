@@ -53,4 +53,9 @@ public class MemberController {
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
+
+    @GetMapping("/category")
+    public String category() {
+        return "category";
+    }
 }

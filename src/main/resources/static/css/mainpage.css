@@ -2,6 +2,19 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+a {
+    color: inherit; /* 부모 요소의 색을 상속받음 */
+    text-decoration: none; /* 링크에 밑줄 없애기 */
+}
+
+figcaption {
+    display: inline;
+}
+
+a {
+    text-emphasis: none;
+    text-decoration: none;
+}
 .top-bar {
     display: flex;
     align-items: center;
@@ -84,47 +97,44 @@ body {
     font-size: 14px;
 }
 
-
-/* top아래 main 배너*/
 #banner {
     margin-left:10%;
     margin-right:10%;
 }
-
-
-/* 어쩌구저쩌구 아이콘, 아래에 상품명 */
+/* ----------------------------------------------------------- */
 #icon-lines li {
     display: flex;
-    gap: 0;  /* 요소들 사이 간격을 1px로 */
-    flex-wrap: wrap; /* 요소가 넘칠 경우 줄바꿈 */
+    flex-wrap: wrap;
 }
 
 .block {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 이미지와 텍스트를 중앙 정렬 */
-    margin-left: -1.5%;
+    align-items: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 6px;
+    background-color: #FFECDD;
+    margin: 30px 10px;
 }
 
 .icons {
-    margin-left: 7%; /* 전체를 왼쪽에서 8% 떨어뜨림 */
+    margin-left: 7%;
 }
+
+/*  */
+
 .block>li{
     text-decoration: none;
 }
 
-
-
-/* 이벤트 알리기기 */
 #event {
     margin-left: 10%;
 }
-/* 이벤트 표 전체 설정*/
 .event-table{
     margin-left:7%;
 }
 
-/* +전체보기 */
 #right-side {
     margin-left:48%;
     font-size: small;
@@ -140,18 +150,15 @@ body {
     font-size: 14px;
 }
 
-
-
-/*   사이드바바*/
 #sidebar {
     position: absolute;
-    right: 10%; /* margin-right을 유지하면서 오른쪽 여백 추가 */
-    top: 70px; /* hr 아래로 위치 조정 (hr의 실제 높이에 맞게 변경) */
+    right: 10%;
+    top: 70px;
     width: 20%;
     min-width: 150px;
     max-width: 250px;
     padding: 2%;
-    height: calc(100vh - 100px); /* hr 아래부터 화면 끝까지 */
+    height: calc(100vh - 100px);
     overflow-y:visible;
     background-color: rgb(255, 255, 255);
 }
@@ -166,68 +173,82 @@ body {
     color: gray;
 }
 
-/* 사이드바 내부 내용 스타일 */
 .sidebar-content {
     display: flex;
-    margin-top: 10px; /* hr과 이미지, 텍스트 간 간격 */
+    margin-top: 10px;
 }
 
 .left-image {
-    width: 50%; /* 왼쪽 이미지를 차지하는 공간 */
-    margin-right: 10px; /* 오른쪽 텍스트와 간격 */
+    width: 50%;
+    margin-right: 10px;
 }
 
 .left-image img {
-    width: 100%; /* 이미지를 사이드바 크기에 맞게 */
+    width: 100%;
     height: auto;
 }
 
 .right-text {
-    width: 50%; /* 오른쪽 텍스트 영역 */
+    width: 50%;
 }
 
 .right-text p {
-    margin: 5px 0; /* 각 텍스트 간의 간격 */
-    font-size: 14px; /* 기본 텍스트 크기 */
-    color: #333; /* 텍스트 색상 */
-}
-
-#orange-hr {
-    color: orange; 
-    height: 0.25px;
-}
-
-#small-font-date {
-    font-size: 13px;
-    color: gray;
-}
-
-/* 사이드바 내부 내용 스타일 */
-.sidebar-content {
-    display: flex;
-    margin-top: 10px; /* hr과 이미지, 텍스트 간 간격 */
-}
-
-.left-image {
-    width: 50%; /* 왼쪽 이미지를 차지하는 공간 */
-    margin-right: 10px; /* 오른쪽 텍스트와 간격 */
-}
-
-.left-image img {
-    width: 100%; /* 이미지를 사이드바 크기에 맞게 */
-    height: auto;
-}
-
-.right-text {
-    width: 50%; /* 오른쪽 텍스트 영역 */
-}
-
-.right-text p {
-    margin: 5px 0; /* 각 텍스트 간의 간격 */
-    font-size: 14px; /* 기본 텍스트 크기 */
-    color: #333; /* 텍스트 색상 */
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
 }
 
 .view-all{
     margin-left: 20%;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-and-login {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #sidebar {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+    .search-bar input {
+        width: 100px;
+    }
+    #banner, #event {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar {
+        padding: 5px;
+    }
+    .search-bar input {
+        width: 80px;
+    }
+    .login-btn {
+        padding: 5px 10px;
+    }
+}
+a {
+    text-emphasis: none;
+    text-decoration: none;
+    color:inherit;
 }
