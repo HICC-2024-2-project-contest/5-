@@ -82,31 +82,36 @@ public class CUCrawling {
                         List<WebElement> productImages = container.findElements(By.xpath(".//ul/li/div/div[1]/div[1]/img"));
 
                         for (int i = 0; i < productNames.size(); i++) {
-                            String name = productNames.get(i).getText();
-                            String price = productPrices.size() > i ? productPrices.get(i).getText() : "0";
-  //                          int intPrice = Integer.parseInt(price.replaceAll("[^0-9]", ""));
-                            String event = (productEvents.size() > i) ? productEvents.get(i).getAttribute("class") : "행사 없음";
-                            String imageUrl = productImages.size() > i ? productImages.get(i).getAttribute("src") : "이미지 없음";
+                            try {
+                                String name = productNames.get(i).getText();
+                                String price = productPrices.size() > i ? productPrices.get(i).getText() : "0";
+                                // int intPrice = Integer.parseInt(price.replaceAll("[^0-9]", "")); // 필요 시 사용
+                                String event = (productEvents.size() > i) ? productEvents.get(i).getAttribute("class") : "행사 없음";
+                                String imageUrl = productImages.size() > i ? productImages.get(i).getAttribute("src") : "이미지 없음";
 
-                            if (imageUrl.startsWith("//")) {
-                                imageUrl = "https:" + imageUrl;
+                                if (imageUrl.startsWith("//")) {
+                                    imageUrl = "https:" + imageUrl;
+                                }
+
+                                // 크롤링한 데이터 DB에 저장
+                                CrawlingDTO dto = new CrawlingDTO();
+                                dto.setCompanyName("CU");
+                                dto.setProductNames(name);
+                                dto.setProductPrices(price);
+                                dto.setProductImages(imageUrl);
+                                dto.setDiscountInfo(event);
+                                dto.setProductCategory(category);
+                                dto.setBarcode(null);
+
+                                crawlingService.saveOrUpdate(dto); // DTO 저장
+
+                            } catch (Exception e) {
+                                System.err.println("❌ 데이터 처리 중 오류 발생: " + e.getMessage());
+                                e.printStackTrace(); // 로그 남기기
                             }
-
-    //                        System.out.println("편의점: CU | 분류: " + category + " | 제품명: " + name + " | 가격: " + intPrice + " | 행사: " + event + " | 이미지: " + imageUrl);
-
-                            // ✅ 크롤링한 데이터 DB에 저장하기
-                            CrawlingEntity entity = new CrawlingEntity();
-                            entity.setCompanyName("CU");
-                            entity.setProductNames(name);
-                            entity.setProductPrices(price);
-                            entity.setProductImages(imageUrl);
-                            entity.setDiscountInfo(event);
-                            entity.setProductCategory(category);
-                            entity.setBarcode(null);
-
-                            crawlingService.saveEntity(entity); // 🔥 CrawlingService를 통해 DB 저장
                         }
                     }
+
                     System.out.println("✅ 카테고리 [" + category + "] 크롤링 완료 ✅\n");
                     JavascriptExecutor js = (JavascriptExecutor) driver;
                     js.executeScript("window.scrollTo(0, 0);");

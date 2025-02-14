@@ -1,5 +1,8 @@
 package hello.core.crawling;
 
+import hello.core.crawling.dto.CrawlingDTO;
+import hello.core.crawling.service.CrawlingService;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +11,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.JavascriptExecutor;
+import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.List;
 
+@Component
+@RequiredArgsConstructor
 public class SECrawling {
-    public static void main(String[] args) {
+    private final CrawlingService crawlingService;
+
+    public void startCrawling() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
@@ -47,7 +55,7 @@ public class SECrawling {
                 for (int i = 0; i < productNames.size(); i++) {
                     String name = productNames.get(i).getText();
                     String price = productPrices.size() > i ? productPrices.get(i).getText() : "가격 정보 없음";
-                    int intPrice = Integer.parseInt(price.replaceAll("[^0-9]", ""));
+                    //int intPrice = Integer.parseInt(price.replaceAll("[^0-9]", ""));  // 필요 시 사용
                     String event = "행사 없음";
                     String imageUrl = productImages.size() > i ? productImages.get(i).getAttribute("src") : "이미지 없음";
 
@@ -57,7 +65,17 @@ public class SECrawling {
 
                     String category = "";
 
-                    System.out.println("편의점: SE | 분류: " + category + " | 제품명: " + name + " | 가격: " + intPrice + " | 행사: " + event + " | 이미지: " + imageUrl);
+                    // 크롤링한 데이터 DB에 저장
+                    CrawlingDTO dto = new CrawlingDTO();
+                    dto.setCompanyName("SE");
+                    dto.setProductNames(name);
+                    dto.setProductPrices(price);
+                    dto.setProductImages(imageUrl);
+                    dto.setDiscountInfo(event);
+                    dto.setProductCategory(category);
+                    dto.setBarcode(null);
+
+                    crawlingService.saveOrUpdate(dto); // DTO 저장
                 }
             }
 
@@ -65,13 +83,14 @@ public class SECrawling {
             driver.get("https://www.7-eleven.co.kr/product/presentList.asp");
 
             // "더보기" 버튼 처리
-            for (int j=0; j<2; j++) {
+            for (int j = 0; j < 2; j++) {
                 if (j == 1) {
                     JavascriptExecutor js = (JavascriptExecutor) driver;
                     js.executeScript("window.scrollTo(0, 0);");
                     WebElement nextTabButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"actFrm\"]/div[3]/div[2]/ul/li[2]/a")));
                     nextTabButton.click();
                 }
+
                 boolean firstClick = true;
                 while (true) {
                     try {
@@ -117,8 +136,8 @@ public class SECrawling {
                         WebElement imageElement = container.findElement(By.xpath(imageXPath));
 
                         String name = nameElement.getText();
-                        String priceText = priceElement.getText();
-                        int intPrice = priceText.isEmpty() ? 0 : Integer.parseInt(priceText.replaceAll("[^0-9]", ""));
+                        String price = priceElement.getText();
+                        // int intPrice = priceText.isEmpty() ? 0 : Integer.parseInt(priceText.replaceAll("[^0-9]", ""));
                         String event = eventElements.isEmpty() ? "행사 없음" : eventElements.get(0).getText();
                         String imageUrl = imageElement.getAttribute("src");
 
@@ -127,7 +146,17 @@ public class SECrawling {
                         }
 
                         String category = "";
-                        System.out.println("편의점: SE | 분류: " + category + " | 제품명: " + name + " | 가격: " + intPrice + " | 행사: " + event + " | 이미지: " + imageUrl);
+                        // 크롤링한 데이터 DB에 저장
+                        CrawlingDTO dto = new CrawlingDTO();
+                        dto.setCompanyName("SE");
+                        dto.setProductNames(name);
+                        dto.setProductPrices(price);
+                        dto.setProductImages(imageUrl);
+                        dto.setDiscountInfo(event);
+                        dto.setProductCategory(category);
+                        dto.setBarcode(null);
+
+                        crawlingService.saveOrUpdate(dto); // DTO 저장
                     } catch (Exception e) {
                         System.out.println("오류 발생: " + e.getMessage());
                     }

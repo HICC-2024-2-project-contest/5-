@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Setter
@@ -56,7 +57,8 @@ public class CrawlingEntity {
         private String companyName;
         private String productNames;
 
-        public CrawlingId() {}
+        public CrawlingId() {
+        }
 
         public CrawlingId(String companyName, String productNames) {
             this.companyName = companyName;
@@ -74,7 +76,7 @@ public class CrawlingEntity {
 
         @Override
         public int hashCode() {
-            return companyName.hashCode() + productNames.hashCode();
+            return Objects.hash(companyName, productNames);
         }
     }
 }
