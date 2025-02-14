@@ -30,27 +30,61 @@
             
         </div>
     </header>
-    <hr>
 
-    <!-- ------------------------------------------------------------------------------------------------------ -->
+
+    <!---------------------------------------------------------------------------------------------------------->
      <div class="container">
         <div class="pd">
             <div id="img">
                 <img src="../img/Rectangle 51.png">
             </div>
             <div class="price">
-                <strong>상품명</strong>
-                
+                <strong id="item-name">상품명</strong>
+                <p>가격비교</p>
+                <div class="cu">
+                    <pre><img src="../img/CU(씨유)로고1 1.svg"><span id="cue"></span>                                                  <strong><span id="price1"></span>원</strong></pre>
+                </div>
+                <div class="gs">
+                    <pre><img src="../img/gs25_logo 1.svg"><span id="gse"></span>                                                <strong><span id="price2"></span>원</strong></pre>
+                </div>
+                <div class="seven">
+                    <pre><img src="../img/1008_bg_af_웰텍스 1.png"><span id="see"></span>                                       <strong><span id="price3"></span>원</strong></pre>
+                </div>
+                <div class="starbox">
+                    <!-- 별점 박스 -->
+                    <div class="box rating-box">
+                      <p>별점</p>
+                      <div class="rating-content">
+                        <img src="../img/Component 1 (1).svg" alt="별" class="star-icon">
+                        <strong class="rating-score">4.5</strong>
+                      </div>
+                    </div>
+                  
+                    <!-- 리뷰 수 박스 -->
+                    <div class="box review-count-box">
+                      <p>리뷰수</p>
+                      <strong class="review-count">128</strong>
+                    </div>
+                  </div>
+            </div>        
+        </div>
+        <div id="hr"></div>
+        <div class="comment-container">
+            <h2>댓글</h2>
+    
+            <div class="comment-box">
+                <textarea id="comment-input" placeholder="댓글을 작성하세요..." rows="3"></textarea>
+                <button id="submit-comment">작성</button>
             </div>
+    
+            <div id="comments-list"></div>
         </div>
      </div>
 
 
 
 
-
-
-    </body>
-    </html>
+<script src="../js/review.js"></script>
+<script src="../js/star.js"></script>
 </body>
 </html>

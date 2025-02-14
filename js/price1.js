@@ -1,0 +1,1 @@
+document.querySelector('#price').innerHTML=111;
