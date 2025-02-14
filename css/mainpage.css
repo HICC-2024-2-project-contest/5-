@@ -2,6 +2,17 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+a {
+    color: inherit; /* 부모 요소의 색을 상속받음 */
+    text-decoration: none; /* 링크에 밑줄 없애기 */
+}
+
+
+
+a {
+    text-emphasis: none;
+    text-decoration: none;
+}
 .top-bar {
     display: flex;
     align-items: center;
@@ -88,10 +99,9 @@ body {
     margin-left:10%;
     margin-right:10%;
 }
-
+/* ----------------------------------------------------------- */
 #icon-lines li {
     display: flex;
-    gap: 0px;
     flex-wrap: wrap;
 }
 
@@ -99,12 +109,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: -1.5%;
+    width: 84px;
+    height: 84px;
+    border-radius: 6px;
+    background-color: #FFECDD;
+    margin: 30px 10px;
 }
 
 .icons {
     margin-left: 7%;
 }
+
+/*  */
+
 .block>li{
     text-decoration: none;
 }
